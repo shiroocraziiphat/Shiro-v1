@@ -73,20 +73,20 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'ShiroBotz.'
+global.packname = 'Elaina-Bot.'
 global.author = 'hehe'
 
 // silakan di ganti klo mau
-global.botwm = `hyzer.`//UBAH JADI NAMAMU
-global.wm = `hyzer.`
+global.botwm = `Hyzer.`//UBAH JADI NAMAMU
+global.wm = `Hyzer.`
 global.botdate = `❏ ${wktu}\n❏ ${week} ${date}`
 global.imagebot = `https://telegra.ph/file/793b6accf3758f092742a.jpg`
-global.logo = fs.readFileSync('./src/logo3.jpg')
+global.logo = fs.readFileSync('./src/elaina.jpg')
 global.thumb1 = 'https://telegra.ph/file/5a882b8558fd1d2bd03fa.jpg'
 global.thumb2 = 'https://telegra.ph/file/f87047ec6e5f0d4a9ea91.jpg'
 global.thumb3 = 'https://telegra.ph/file/88edbb01051b397574def.jpg'
 global.thumb4 = 'https://telegra.ph/file/7957630a57078c5ec0400.jpg'
-global.logoowner = fs.readFileSync('./src/owner.jpg')
+global.logoowner = fs.readFileSync('./src/elaina2.jpg')
 global.wait = '```[ ! ] wait...```'
 global.rpg = '[ ! ] Fitur Rpg Dimatikan\nKetik *!enable* *rpg* untuk menggunakan fitur ini!\nKalo Mau main Disini aja\nhttps://chat.whatsapp.com/Hjr3H7l9iC8F2deP0cv6GT'
 global.nsfw = '[ ! ] Fitur NSFW Dimatikan\nKetik *!enable* *nsfw* untuk menggunakan fitur ini!\n“Katakanlah kepada orang laki-laki yang beriman: Hendaklah mereka menahan pandanganya, dan memelihara kemaluannya; … Katakanlah kepada wanita yang beriman: Hendaklah mereka menahan pandangannya, dan kemaluannya, dan janganlah mereka Menampakkan perhiasannya, kecuali yang (biasa) nampak dari padany,” \n(TQS. Al-Nur [24]: 30-31).'
