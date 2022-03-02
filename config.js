@@ -34,8 +34,8 @@ function pickRandom(list) {
 
 
 global.DeveloperMode = 'false' //Buat Mode True False Moderator
-global.linkGC = ['https://chat.whatsapp.com/LcgnBtXnHbeJx6VOgQyoxw'] // ganti jadi group lu
-global.owner = ['6282361160044', '6285212023766', '6282361160044', '6285212023766', '6282361160044', '6285212023766', '6282361160044', '6285212023766'] // Put your number here
+global.linkGC = ['https://chat.whatsapp.com/Jzd9DEVB5nODtNBk1VCNrV'] // ganti jadi group lu
+global.owner = ['6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044'] // Put your number here
 global.mods = ['6282361160044'] // Want some help?
 global.prems = JSON.parse(fs.readFileSync('./src/premium.json')) // Premium user has unlimited limit
 global.APIs = { // API Prefix
@@ -73,12 +73,12 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Elaina-Bot.'
+global.packname = 'ShiroBotz'
 global.author = 'hehe'
 
 // silakan di ganti klo mau
-global.botwm = `Hyzer.`//UBAH JADI NAMAMU
-global.wm = `Hyzer.`
+global.botwm = `©𝚂𝚑𝚒𝚛𝚘𝙱𝚘𝚝𝚣`//UBAH JADI NAMAMU
+global.wm = `©𝙷𝚢𝚣𝚎𝚛`
 global.botdate = `❏ ${wktu}\n❏ ${week} ${date}`
 global.imagebot = `https://telegra.ph/file/793b6accf3758f092742a.jpg`
 global.logo = fs.readFileSync('./src/elaina.jpg')
