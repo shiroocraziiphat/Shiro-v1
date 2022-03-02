@@ -26,33 +26,17 @@ hour: 'numeric',
 minute: 'numeric',
 second: 'numeric'
 })
+let wktu = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 
 function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)]
 }
 
-/*function image() {
-    const time = moment.tz('Asia/Jakarta').format('HH')
-    res = fs.readFileSync('./src/logo3.jpg')
-    if (time >= 4) {
-        res = fs.readFileSync('./src/logo3.jpg')
-    }
-    if (time > 10) {
-        res = fs.readFileSync('./src/logo3.jpg')
-    }
-    if (time >= 15) {
-        res = fs.readFileSync('./src/logo2.jpg')
-    }
-    if (time >= 18) {
-        res = fs.readFileSync('./src/logo2.jpg')
-    }
-    return res
-}*/
 
 global.DeveloperMode = 'false' //Buat Mode True False Moderator
-global.linkGC = ['https://chat.whatsapp.com/Hjr3H7l9iC8F2deP0cv6GT'] // ganti jadi group lu
-global.owner = ['62831433937633','6283845403062','6288217277973','62831433937630','6285704954639', '62895336282144', '6285712420674'] // Put your number here
-global.mods = [] // Want some help?
+global.linkGC = ['https://chat.whatsapp.com/Jzd9DEVB5nODtNBk1VCNrV'] // ganti jadi group lu
+global.owner = ['6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044', '6282361160044'] // Put your number here
+global.mods = ['6282361160044'] // Want some help?
 global.prems = JSON.parse(fs.readFileSync('./src/premium.json')) // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
@@ -69,17 +53,18 @@ global.APIs = { // API Prefix
   amel: 'https://melcanz.com',
   hardianto: 'https://hardianto.xyz',
   botstyle: 'https://botstyle-api.herokuapp.com',
+adiisus: 'https://adiixyzapi.herokuapp.com',
   LeysCoder: 'https://leyscoders-api.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey' (apikey kalian)
-  'https://api.xteam.xyz': 'Dawnfrostkey',
+  'https://api.xteam.xyz': 'APIKEY',
   'https://anabotofc.herokuapp.com/': 'AnaBot',
-  'https://api.lolhuman.xyz': 'Dawnfrostkey',
+  'https://api.lolhuman.xyz': 'APIKEY',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
   'https://pencarikode.xyz': 'pais',
-  'https://melcanz.com': 'amel',
+  'https://melcanz.com': 'wEDTUsWj',
   'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://server-api-rey.herokuapp.com': 'apirey',
   'https://botstyle-api.herokuapp.com': 'Eyar749L',
@@ -88,15 +73,20 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = '🌙 Ƙαnnα вσт\nwa.me/6283143393763\n\n\n𝙱𝚢 𝙻𝚎𝚝𝚝𝚊 あ\n\n\nFollow IG: @ppiowy_\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.'
-global.author = '۰ ⸼'
+global.packname = 'ShiroBotz'
+global.author = 'hehe'
 
 // silakan di ganti klo mau
-global.botwm = `🎮 Ƙαnnα вσт`//UBAH JADI NAMAMU
-global.botdate = `╭──────────═┅═─────────\n│◪ ${time}\n┊◪ ${week} ${date}\n╰──────────═┅═─────────`
+global.botwm = `©𝚂𝚑𝚒𝚛𝚘𝙱𝚘𝚝𝚣`//UBAH JADI NAMAMU
+global.wm = `©𝙷𝚢𝚣𝚎𝚛`
+global.botdate = `❏ ${wktu}\n❏ ${week} ${date}`
 global.imagebot = `https://telegra.ph/file/793b6accf3758f092742a.jpg`
-global.logo = fs.readFileSync('./src/logo3.jpg')
-global.logoowner = fs.readFileSync('./src/owner.jpg')
+global.logo = fs.readFileSync('./src/elaina.jpg')
+global.thumb1 = 'https://telegra.ph/file/9a51394259be839d48993.jpg'
+global.thumb2 = 'https://telegra.ph/file/3a1e765fd59e6b16be719.jpg'
+global.thumb3 = 'https://telegra.ph/file/59552b5dfbef170ad1603.jpg'
+global.thumb4 = 'https://telegra.ph/file/e4ec391626c8dc31706f3.jpg'
+global.logoowner = fs.readFileSync('./src/elaina2.jpg')
 global.wait = '```[ ! ] wait...```'
 global.rpg = '[ ! ] Fitur Rpg Dimatikan\nKetik *!enable* *rpg* untuk menggunakan fitur ini!\nKalo Mau main Disini aja\nhttps://chat.whatsapp.com/Hjr3H7l9iC8F2deP0cv6GT'
 global.nsfw = '[ ! ] Fitur NSFW Dimatikan\nKetik *!enable* *nsfw* untuk menggunakan fitur ini!\n“Katakanlah kepada orang laki-laki yang beriman: Hendaklah mereka menahan pandanganya, dan memelihara kemaluannya; … Katakanlah kepada wanita yang beriman: Hendaklah mereka menahan pandangannya, dan kemaluannya, dan janganlah mereka Menampakkan perhiasannya, kecuali yang (biasa) nampak dari padany,” \n(TQS. Al-Nur [24]: 30-31).'
@@ -106,7 +96,7 @@ global.CanvasAPI = '';
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text='
 
 // tingkat kesulitan, semakin tinggi semakin susah
-global.multiplier = 16 // The higher, The harder levelup
+global.multiplier = 38 // The higher, The harder levelup
 
 //*****************PEMBATAS*********************
 // JANGAN DI GANTI NTAR KLO GABISA JAN TANYA GW
