@@ -9,45 +9,41 @@ let neww = Math.round(performance.now())
 let old = Math.round(performance.now())
 const chats = conn.chats.all()
 const groups = chats.filter(v => v.jid.endsWith('g.us'))
-const defaultMenu = {
+const defaultMenu = {                                     .
   before: `
-╭─────═[ *INFO PENGGUNA* ]═─────⋆
-│╭───────────────···
-┴│▸ *Name:* %name
-⬡│▸ *Premium:* %prems
-⬡│▸ *Age:* %age
-⬡│▸ *Limit:* %limit
-⬡│▸ *Money:* %money
-⬡│▸ *Role:* %role
-⬡│▸ *Level:* %level [%xp4levelup]
-⬡│▸ *Xp:* %exp / %maxexp
-┬│▸ *Total Xp:* %totalexp
-│╰────────────────···
-┠─────═[ *TODAY* ]═─────⋆
-│╭────────────────···
-┴│    *${ucapan()} %name!*
-⬡│▸ *Tanggal:* %week %weton, %date
-⬡│▸ *Tanggal Islam:* %dateIslamic
-┬│▸ *Waktu:* %time
-│╰────────────────···
-┠─────═[ *BOT INFO* ]═─────⋆
-│╭────────────────···
-┴│▸ *Nama Bot:* %me
-⬡│▸ *Mode:* ${global.opts['self'] ? 'Private' : 'Publik'}
-⬡│▸ *Prefix:* [ ! ]
-⬡│▸ *Speed:* ${neww - old} ms
-⬡│▸ *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-⬡│▸ *Platform:* Unbuntu linux
-⬡│▸ *Uptime:* %uptime (%muptime)
-┬│▸ *Database:* %rtotalreg dari %totalreg
-│╰────────────────···
-╰──────────═┅═──────────
+┏━━━ꕥ〔 *INFO PENGGUNA* 〕ꕥ━━━━⬣
+┃✾ *Name:* %name
+┃✾ *Premium:* %prems
+┃✾ *Age:* %age
+┃✾ *Limit:* %limit
+┃✾ *Money:* %money
+┃✾ *Role:* %role
+┃✾ *Level:* %level [%xp4levelup]
+┃✾ *Xp:* %exp / %maxexp
+┃✾ *Total Xp:* %totalexp
+┗━━━ꕥ
+┏━━━ꕥ〔 *TIME* 〕ꕥ━━━━⬣
+┃✾ *${ucapan()} %name!*
+┃✾ *Tanggal:* %week %weton, %date
+┃✾ *Tanggal Islam:* %dateIslamic
+┃✾ *Waktu:* %time
+┗━━━ꕥ
+┏━━━ꕥ〔 *INFO BOT* 〕ꕥ━━━━⬣
+┃✾ *Nama Bot:* ShiroBotz
+┃✾ *Mode:* ${global.opts['self'] ? 'Private' : 'Publik'}
+┃✾ *Prefix:* [ ! ]
+┃✾ *Speed:* ${neww - old} ms
+┃✾ *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+┃✾ *Platform:* Unbuntu linux
+┃✾ *Uptime:* %uptime (%muptime)
+┃✾ *Database:* %rtotalreg dari %totalreg
+┗━━━━━━━━━━━━━━━━━━━━━━━━
 %readmore`.trimStart(),
   header: '╭═[ *%category* ]═────···\n┴',
   body: '│◌ ⃝✧⪼ %cmd %islimit %isPremium',
   footer: '┬\n╰───────────···',
-  after: `⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕.
-     %me
+  after: `
+     *ShiroBotz Created by Hyzer*
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
@@ -254,27 +250,25 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     if (teks == '404') {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
-          "title": `✧────────···[ Dashboard ]···─────────✧`.trim(),
+          "title": `✾━━━━━━━━━[ Dashboard ]━━━━━━━━━✾ `.trim(),
           "description": `${ucapan()}, ${name} !`.trim(),
-          "footerText": `╭━━━━━━━━━━━━━━━━┈─✧
-┴
-│⬡ Aktif selama ${uptime}
-│⬡ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-│⬡ Prefix : [#]
-│⬡ *${Object.keys(global.db.data.users).length}* Pengguna
-│⬡ *${totaljadibot.length}* Jadibot
-│⬡ *${conn.blocklist.length}* Terblock
-│⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-│⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
-┬
-├━━━━━━━━━━━━━━━━┈─⋆
-│ ▸ *Author :* Nurutomo
-┴ ▸ *Owner :* Letta
-✧
-┬ 📌 𝗣𝗶𝗻𝗻𝗲𝗱 :
-│ Tolong jangan dispam ya biar ga delay
-╰━━━━━━━━━━━━━━━━┈─◂
-     ▌│█║▌║▌║║▌║▌║█│▌
+          "footerText": `━━━━━━━━━━━━━━━━━━━✾ 
+┃
+┃✾  Aktif selama ${uptime}
+┃✾  Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+┃✾  Prefix : [#]
+┃✾  *${Object.keys(global.db.data.users).length}* Pengguna
+┃✾  *${totaljadibot.length}* Jadibot
+┃✾  *${conn.blocklist.length}* Terblock
+┃✾  *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
+┃✾  *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
+┗━━━ꕥ
+┏━━━ꕥ 
+┃✾ *Author :* Nurutomo
+┃✾ *Owner :* Hyzer
+✾ 
+┃✾ *あまり多くはありません*
+┗━━━━━━━━━━━━━━━━━✾ 
      
      ${week}, ${date}`,
           "buttonText": "Click Here!",
@@ -283,7 +277,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                             {
                                 "rows": [{
                                          "title": "[📊] Status",
-                                         "description": "Status Kanna Bot",
+                                         "description": "Status ShiroBotz",
                                          "rowId": ".botstat"
                                     }, {
                                          "title": "[⚡] Speed",
@@ -425,7 +419,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                                 }, {
                                 "rows": [{
                                 "title": "[🗳️] Donasi",
-                                "description": "Donasi kak, jangan enak pakenya doang",
+                                "description": "Donasi kak",
                                 "rowId": ".donasi"
                                 }, {
                                 "title": "[🔖] Sewa",
