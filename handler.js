@@ -3,7 +3,7 @@ let chalk = require('chalk')
 let util = require('util')
 let fetch = require('node-fetch')
 let simple = require('./lib/simple')
-let { MessageType } = require('@adiwajshing/baileys')
+let { MessageType, Presence } = require('@adiwajshing/baileys')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -684,6 +684,7 @@ module.exports = {
       }
     } finally {
       //console.log(global.db.data.users[m.sender])
+      await this.updatePresence(m.chat, Presence.composing)
       let user, stats = global.db.data.stats
       if (m) {
         if (m.sender && (user = global.db.data.users[m.sender])) {
@@ -759,7 +760,7 @@ await conn.sendMessage(jid, { "contentText": action === 'add' ? '─────
             "fileLength": "99999999999999",
             "pageCount": 100,
             "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
-            "fileName": 'Creαted by : ℓettα - sαmα ♡',
+            "fileName": "Creαted by" : 'Hyzer.',
             "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
             "directPath": "/v/t62.7118-24/35150115_287008086621545_8250021012380583765_n.enc?ccb=11-4&oh=6f0f730e5224c054969c276a6276a920&oe=61A21F46",
             "mediaKeyTimestamp": "1634472176",
@@ -795,7 +796,7 @@ await conn.sendMessage(jid, { "contentText": action === 'add' ? '─────
 *◇ Number*: ${require('awesome-phonenumber')(`+${m.participant.split`@`[0]}`).getNumber('international')}
 
 klick untuk mematikannya atau ketik #disable delete
-`.trim(), '🎮 Ƙαnnα вσт', 'DISABLE DELETE', '.disable delete', {
+`.trim(), 'ShiroBotz', 'DISABLE DELETE', '.disable delete', {
       quoted: m.message,
       contextInfo: {
         mentionedJid: [m.participant]
@@ -816,7 +817,7 @@ klick untuk mematikannya atau ketik #disable delete
           return
         break
     }
-    await this.sendMessage(from, '[❗] karena anda menelfon bot. anda diblokir otomatis', MessageType.extendedText)
+    await this.sendMessage(from, 'iya, ada apa nelpon?', MessageType.extendedText)
     await this.blockUser(from, 'add')
   }
 }
@@ -830,16 +831,18 @@ let wm = global.botwm
 let usr = db.data.users[m.sender]
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let user = conn.getName(who)
+let tag = `@${m.sender.split('@')[0]}`
+let fot = `Made by @${'6282361160044'.split('@')[0]}`
   let msg = {
-    rowner: '[❗] Creator Only',
-    owner: '[❗] Owner Only',
-    mods: '[❗] Moderator Only',
-    premium: '[❗] Premium Only',
-    group: '[❗] Group Only',
-    private: '[❗] Private Only',
-    admin: '[❗] Admin Group Only',
-    nsfw: '[❗] Nsfw Not Active',
-    botAdmin: '[❗] Bot Admin Only'
+    rowner: '*CREATOR ONLY*',
+    owner: '*OWNER ONLY*',
+    mods: '*MODERATOR ONLY*',
+    premium: '*PREMIUM ONLY*',
+    group: '*GROUP ONLY*',
+    private: '*PRIVATE ONLY*',
+    admin: '*ADMIN ONLY*',
+    nsfw: '*NSFW NOT ACTIVE*',
+    botAdmin: '*BOT ADMIN ONLY*'
     /*unreg: `*── 「 NOT REGISTERED 」 ──*
 Halo @${m.sender.split`@`[0]} !
 Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot
@@ -847,17 +850,147 @@ Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot
 📍 Ketik : #daftar nama.umur
 ▸ Contoh : #daftar ${user}.13`*/
   }[type]
-  if (msg) return m.reply(msg)
+  let des = {
+    rowner: `\nHai, ${namae} 👋\nFitur Ini hanya khusus creator bot!!`,
+    owner: `\nHai, ${namae} 👋\nFitur Ini hanya khusus developer bot!!`,
+    mods: `\nHai, ${namae} 👋\nFitur Ini hanya khusus moderator bot!!`,
+    premium: `\nHai, ${namae} 👋\nFitur Ini hanya khusus user premium!!`,
+    group: `\nHai, ${namae} 👋\nFitur Ini hanya bisa dipakai didalam group!!`,
+    private: `\nHai, ${namae} 👋\nFitur Ini hanya bisa dipakai dichat pribadi!!`,
+    admin: `\nHai, ${namae} 👋\nFitur Ini hanya khusus admin group!!`,
+    nsfw: `\nHai, ${namae} 👋\nFitur nsfw belum diaktifkan dichat ini!!`,
+    botAdmin: `\nHai, ${namae} 👋\nJadikan bot admin dulu untuk memakai fitur ini!!`
+    /*unreg: `*── 「 NOT REGISTERED 」 ──*
+Halo @${m.sender.split`@`[0]} !
+Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot
+    
+📍 Ketik : #daftar nama.umur
+▸ Contoh : #daftar ${user}.13`*/
+  }[type]
+  if (msg) return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
+        "listMessage": {
+          "title": msg,
+          "description": des,
+          "footerText": global.botdate,
+          "buttonText": "ShiroBotz",
+          "listType": "SINGLE_SELECT",
+          "sections": [
+                            {
+                                "rows": [{
+                                         "title": `MY OWNER`,
+                                         "description": "List Owner ShiroBotz",
+                                         "rowId": ".nowner"
+                                    }, {
+                                         "title": `ABOUT`,
+                                         "description": " Tentang ShiroBotz", 
+                                         "rowId": ".info"
+                                    }, {
+                                         "title": `LIST MENU`,
+                                         "description": " List Menu ShiroBotz",
+                                         "rowId": ".menu"
+                                    }, {
+                                         "title": `SCRIPT`,
+                                         "description": " Source code ShiroBotz",
+                                         "rowId": ".sc"
+                                         }, {
+                                         "title": `GROUP BOT`,
+                                         "description": " List Group Official ShiroBotz",
+                                         "rowId": ".gcbot"
+                       }],
+                    "title": "Created By Hyzer."
+                  }
+                        ], "contextInfo": 
+                         { "stanzaId": m.key.id,
+                        "participant": m.sender,
+                        "quotedMessage": m.message
+                        }
+                      }
+                     }, {quoted: m, contexInfo: { mentionedJid: conn.parseMention(fot)}}), {waitForAck: true})
   
+  let titreg = '*── 「 NOT REGISTERED 」 ──*'
   let msgg = {
-  unreg: `*── 「 NOT REGISTERED 」 ──*
-Halo kak @${syappa.replace(/@.+/, '')} !
+  unreg: `
+Halo kak ${namae} !
 Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot 🗂️
     
-📍 *Ketik :* #daftar nama.umur
-⤿ *Contoh :* #daftar ${namae}.13`
+📮 Silahkan Klik tombol dibawah, dan pilih umur anda!`
 }[type]
-  if (msgg) return conn.sendButton(m.chat, msgg, botdate + '\n' + global.wm, 'Verify', `.daftar ${namae}.18`, m, { contextInfo: { mentionedJid: [syappa] }})
+  if (msgg) return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
+        "listMessage": {
+          "title": titreg,
+          "description": msgg,
+          "footerText": global.botdate,
+          "buttonText": "VERIFY",
+          "listType": "SINGLE_SELECT",
+          "sections": [
+                            {
+                                "rows": [{
+                                         "title": '27 Tahun',
+                                         "rowId": '.daftar ' + namae + '.27'
+                                    }, {
+                                         "title": '26 Tahun',
+                                         "rowId": '.daftar ' + namae + '.26'
+                                    }, {
+                                    	"title": '25 Tahun',
+                                         "rowId": '.daftar ' + namae + '.25'
+                                    }, {
+                                    	"title": '24 Tahun',
+                                         "rowId": '.daftar ' + namae + '.24'
+                                    }, {
+                                    	"title": '23 Tahun',
+                                         "rowId": '.daftar ' + namae + '.23'
+                                    }, {
+                                    	"title": '22 Tahun',
+                                         "rowId": '.daftar ' + namae + '.22'
+                                    }, {
+                                    	"title": '21 Tahun',
+                                         "rowId": '.daftar ' + namae + '.21'
+                                    }, {
+                                    	"title": '20 Tahun',
+                                         "rowId": '.daftar ' + namae + '.20'
+                                    }, {
+                                    	"title": '19 Tahun',
+                                         "rowId": '.daftar ' + namae + '.19'
+                                    }, {
+                                    	"title": '18 Tahun',
+                                         "rowId": '.daftar ' + namae + '.18'
+                                    }, {
+                                    	"title": '17 Tahun',
+                                         "rowId": '.daftar ' + namae + '.17'
+                                    }, {
+                                    	"title": '16 Tahun',
+                                         "rowId": '.daftar ' + namae + '.16'
+                                    }, {
+                                    	"title": '15 Tahun',
+                                         "rowId": '.daftar ' + namae + '.15'
+                                    }, {
+                                    	"title": '14 Tahun',
+                                         "rowId": '.daftar ' + namae + '.14'
+                                    }, {
+                                    	"title": '13 Tahun',
+                                         "rowId": '.daftar ' + namae + '.13'
+                                    }, {
+                                    	"title": '12 Tahun',
+                                         "rowId": '.daftar ' + namae + '.12'
+                                    }, {
+                                    	"title": '11 Tahun',
+                                         "rowId": '.daftar ' + namae + '.11'
+                                    }, {
+                                    	"title": '10 Tahun',
+                                         "rowId": '.daftar ' + namae + '.10'
+                                         }, {
+                                    	"title": '9 Tahun',
+                                         "rowId": '.daftar ' + namae + '.9'
+                       }],
+                    "title": "Silahkan Pilih Umur Anda!"
+                  }
+                        ], "contextInfo": 
+                         { "stanzaId": m.key.id,
+                        "participant": m.sender,
+                        "quotedMessage": m.message
+                        }
+                      }
+                     }, {quoted: m, contexInfo: { mentionedJid: [syappa]}}), {waitForAck: true})
 }
 
 let file = require.resolve(__filename)
